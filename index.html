@@ -79,6 +79,30 @@
             margin-bottom: 5px;
         }
 
+        /* Styling for the GTranslate wrapper */
+        .gtranslate_wrapper {
+            background-color: #f0f0f0; /* Light background */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Spacing inside the div */
+            width: 200px; /* Set a fixed width */
+            text-align: center; /* Center the content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            margin: 20px auto; /* Center the div on the page with margin */
+        }
+
+        /* Styling for the flags, adjusting size */
+        .gtranslate_wrapper img {
+            border-radius: 50%; /* Make flags circular */
+            border: 2px solid #ddd; /* Light border around flags */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Hover effect for the flags */
+        .gtranslate_wrapper img:hover {
+            transform: scale(1.2); /* Slight zoom on hover */
+        }
+
         .form-group input {
             width: 100%;
             padding: 8px;
